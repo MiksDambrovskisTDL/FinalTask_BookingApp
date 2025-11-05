@@ -1,0 +1,25 @@
+name: Mobile Test Automation - Booking App
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Choose the test suite to run'
+        required: true
+        default: 'BookingRegression'
+        type: choice
+        options:
+          - BookingRegression
+          - BookingSearchTest
+          - SavedPropertyTest
+
+jobs:
+  run-tests:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@5
+
+      - name: Run tests
+        run: mvn test -Dtest.suite=${{ inputs.test_suite }}.xml
