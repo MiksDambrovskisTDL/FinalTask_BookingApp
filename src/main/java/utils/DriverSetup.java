@@ -36,8 +36,7 @@ public class DriverSetup extends ConfigReader {
     public void setUp() {
 
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName(getProperty("device.name"))
-                .setUdid(getProperty("device.udid"))
+        options.setDeviceName(getProperty("avd"))
                 .setApp(getProperty("app"))
                 .setAppPackage(getProperty("app.package"))
                 .setAppActivity(getProperty("app.activity"))
